@@ -9,7 +9,6 @@
   </head>
 
   <body>
-  <div id="home">
     <div id="sidebar">
       <div id="logo">
         <%= link_to root_path do %>
@@ -18,9 +17,12 @@
       </div>
       <h1>Racquetball RI</h1>
     </div>
-        <button><%= link_to "All Posts", root_path %></button>
-  </div>
-  <% flash.each do |name, msg| %>
+    <ul>
+        <li><%= link_to "All Posts", root_path %></li>
+        <li>gyms in RI  </li>
+        <li>players of RI</li>
+    </ul>
+          <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert") %>
     <% end %>
 
