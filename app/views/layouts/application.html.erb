@@ -19,7 +19,7 @@
     </div>
     <ul>
         <li><%= link_to "All Posts", root_path %></li>
-        <li>gyms in RI  </li>
+        <li><%= link_to "gyms in RI", gyms_path %></li>
         <li>players of RI</li>
     </ul>
           <% flash.each do |name, msg| %>
@@ -27,7 +27,6 @@
     <% end %>
   <div id="yieldsContainer">
     <div class ="yields"><%= yield %></div>
-    <div class ="yields"><%= content_for?(:posts) ? yield(:posts) : yield %></div>
   </div>
   </body>
 </html>

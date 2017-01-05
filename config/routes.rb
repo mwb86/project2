@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 resources :posts do
   resources :comments
 end
-
+resources :gyms
 root 'posts#index'
 end

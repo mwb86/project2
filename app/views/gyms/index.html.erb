@@ -1,0 +1,8 @@
+
+<button><%= link_to "New Gym", new_gym_path %></button>
+<% @gyms.each do |gym| %>
+  <div class ="gym_wrapper">
+    <h2 class ="name"><%= link_to gym.name, gym %></h2>
+    
+  </div>
+  <% end %>

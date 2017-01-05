@@ -1,0 +1,15 @@
+New Gym
+<%= form_for :gym, url: gyms_path do |f| %>
+
+<p>
+<%= f.label :name %> <br>
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :body %><br>
+<%= f.text_area :body %>
+</p>
+<p>
+<%= f.submit %>
+</p>
+<% end %>
