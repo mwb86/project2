@@ -14,25 +14,51 @@
  *= require_self
  */
 #logo {
-  height:150px;
+  position:relative;
+  display: block;
+
+  border-bottom: solid 7px black;
+  z-index:0;
+}
+#playerGIF {
+  position:relative;
+  z-index: -1;
+}
+#ri{
+  background-color: #ffffe6;
+  margin-top: -26px;
+}
+#nextToGIF{
+  font-size: 90px;
+  vertical-align: middle;
+  transform : scale(1,1.8);
+  margin-top:26px;
+}
+img {
+  z-index: 0;
+  /*transform: scale(.5);*/
+  float: left;
 }
 #sidebar {
   display: flex;
+  flex-direction: column;
   border: solid 2px red;
 }
-#home{
+/*#home{
   font-size: 10px;
   background-repeat: no-repeat;
-}
+}*/
 h1{
-  color: #f9dcac;
-  font-size: 60px;
-  margin:0 auto;
-  padding-left: 0px;
-  margin-left: -30px;
-  flex-wrap: wrap;
-  height:160px;
-  vertical-align: middle;
+  color: red;
+  /*font-size: 60px;*/
+  /*margin:0 auto;*/
+  /*padding-left: 0px;*/
+  /*margin-left: -30px;*/
+  /*flex-wrap: wrap;*/
+  /*height:85px;*/
+  /*vertical-align: middle;*/
+  /*border-bottom: solid 10px black;*/
+  margin: 0 0;
 }
 .yields{
   border: solid 1px black;

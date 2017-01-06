@@ -1,0 +1,4246 @@
+Last login: Wed Jan  4 07:37:00 on ttys000
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   app/assets/javascripts/posts.coffee
+	new file:   app/assets/stylesheets/posts.scss
+	new file:   app/controllers/posts_controller.rb
+	new file:   app/helpers/posts_helper.rb
+	new file:   app/views/posts/index.html.erb
+	modified:   config/routes.rb
+	new file:   test/controllers/posts_controller_test.rb
+
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'added first view for posts index'
+[master d260b53] added first view for posts index
+ 7 files changed, 22 insertions(+)
+ create mode 100644 app/assets/javascripts/posts.coffee
+ create mode 100644 app/assets/stylesheets/posts.scss
+ create mode 100644 app/controllers/posts_controller.rb
+ create mode 100644 app/helpers/posts_helper.rb
+ create mode 100644 app/views/posts/index.html.erb
+ create mode 100644 test/controllers/posts_controller_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'added form_for new posts'
+[master 9eda4a8] added form_for new posts
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~/projects/projectTWO/racquetball_ri (master)$ rails generate model Post title:string body:text
+Running via Spring preloader in process 13575
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      create    db/migrate/20170104131150_create_posts.rb
+      create    app/models/post.rb
+      invoke    test_unit
+      create      test/models/post_test.rb
+      create      test/fixtures/posts.yml
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+== 20170104131150 CreatePosts: migrating ======================================
+-- create_table(:posts)
+   -> 0.0011s
+== 20170104131150 CreatePosts: migrated (0.0012s) =============================
+
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'generated Post model and than did db:migrate'
+[master a7a01d9] generated Post model and than did db:migrate
+ 5 files changed, 50 insertions(+)
+ create mode 100644 app/models/post.rb
+ create mode 100644 db/migrate/20170104131150_create_posts.rb
+ create mode 100644 db/schema.rb
+ create mode 100644 test/fixtures/posts.yml
+ create mode 100644 test/models/post_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'first post was successful and appeared on posts show view'
+[master 618b1c2] first post was successful and appeared on posts show view
+ 2 files changed, 23 insertions(+)
+ create mode 100644 app/views/posts/show.html.erb
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'new posts form was in the index.html.erb by accident. moved to a new.html.erb'
+[master 429bb1c] new posts form was in the index.html.erb by accident. moved to a new.html.erb
+ 3 files changed, 16 insertions(+), 14 deletions(-)
+ create mode 100644 app/views/posts/new.html.erb
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'posts index shows posts with date createad'
+[master 13e2a88] posts index shows posts with date createad
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+:
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+(END)
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+ ESCOC
+
+
+
+
+
+ moved to a new.html.erb
+
+
+
+
+
+view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+ ESCOD
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+ ESCOD
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'validations started on posts'
+[master 5ebc30a] validations started on posts
+ 7 files changed, 61 insertions(+), 5 deletions(-)
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'edit and delete posts'
+[master f939e88] edit and delete posts
+ 4 files changed, 43 insertions(+)
+ create mode 100644 app/views/posts/_form.html.erb
+ create mode 100644 app/views/posts/edit.html.erb
+~/projects/projectTWO/racquetball_ri (master)$ rails generate model Comment name:string body:text post:references
+Running via Spring preloader in process 17409
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      create    db/migrate/20170104175000_create_comments.rb
+      create    app/models/comment.rb
+      invoke    test_unit
+      create      test/models/comment_test.rb
+      create      test/fixtures/comments.yml
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+== 20170104175000 CreateComments: migrating ===================================
+-- create_table(:comments)
+   -> 0.0046s
+== 20170104175000 CreateComments: migrated (0.0047s) ==========================
+
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'generated model for Comment and migrated to database'
+[master 472077f] generated model for Comment and migrated to database
+ 5 files changed, 42 insertions(+), 1 deletion(-)
+ create mode 100644 app/models/comment.rb
+ create mode 100644 db/migrate/20170104175000_create_comments.rb
+ create mode 100644 test/fixtures/comments.yml
+ create mode 100644 test/models/comment_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+ ESCOD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+Author: mwb86 <masonwbrown@gmail.com>
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+ ESCOD
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+ ESCOC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+. moved to a new.html.erb
+
+
+
+
+
+ view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ESCOD
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+ ESCOC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+. moved to a new.html.erb
+
+
+
+
+
+ view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ESCOC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ESCOD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+. moved to a new.html.erb
+
+
+
+
+
+ view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ESCOD
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+ ESCOD
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~/projects/projectTWO/racquetball_ri (master)$ rails generate controller Comments
+Running via Spring preloader in process 17562
+Expected string default value for '--jbuilder'; got true (boolean)
+Expected string default value for '--helper'; got true (boolean)
+Expected string default value for '--assets'; got true (boolean)
+      create  app/controllers/comments_controller.rb
+      invoke  erb
+      create    app/views/comments
+      invoke  test_unit
+      create    test/controllers/comments_controller_test.rb
+      invoke  helper
+      create    app/helpers/comments_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/comments.coffee
+      invoke    scss
+      create      app/assets/stylesheets/comments.scss
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'added controller for comments'
+[master c9053a3] added controller for comments
+ 7 files changed, 27 insertions(+), 1 deletion(-)
+ create mode 100644 app/assets/javascripts/comments.coffee
+ create mode 100644 app/assets/stylesheets/comments.scss
+ create mode 100644 app/controllers/comments_controller.rb
+ create mode 100644 app/helpers/comments_helper.rb
+ create mode 100644 test/controllers/comments_controller_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'delete comments added'
+[master 7e3fed5] delete comments added
+ 5 files changed, 39 insertions(+), 1 deletion(-)
+ create mode 100644 app/views/comments/_comment.html.erb
+ create mode 100644 app/views/comments/_form.html.erb
+~/projects/projectTWO/racquetball_ri (master)$ bundle install
+Using rake 12.0.0
+Using concurrent-ruby 1.0.4
+Using i18n 0.7.0
+Using minitest 5.10.1
+Using thread_safe 0.3.5
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile2 2.1.0
+Using rack 2.0.1
+Using nio4r 1.2.1
+Using websocket-extensions 0.1.2
+Using mime-types-data 3.2016.0521
+Using arel 7.1.4
+Using bcrypt 3.1.11
+Using byebug 9.0.6
+Using coffee-script-source 1.12.2
+Using execjs 2.7.0
+Using method_source 0.8.2
+Using thor 0.19.4
+Using debug_inspector 0.0.2
+Using orm_adapter 0.5.0
+Using ffi 1.9.14
+Using multi_json 1.12.1
+Using rb-fsevent 0.9.8
+Using puma 3.6.2
+Using bundler 1.13.7
+Using sass 3.4.23
+Using tilt 2.0.5
+Using sqlite3 1.3.12
+Using turbolinks-source 5.0.0
+Using tzinfo 1.2.2
+Using nokogiri 1.7.0
+Using rack-test 0.6.3
+Using warden 1.2.6
+Using sprockets 3.7.1
+Using websocket-driver 0.6.4
+Using mime-types 3.1
+Using coffee-script 2.4.1
+Using uglifier 3.0.4
+Using rb-inotify 0.9.7
+Using turbolinks 5.0.1
+Using activesupport 5.0.1
+Using loofah 2.0.3
+Using mail 2.6.4
+Using listen 3.0.8
+Using rails-dom-testing 2.0.2
+Using globalid 0.3.7
+Using activemodel 5.0.1
+Using jbuilder 2.6.1
+Using spring 2.0.0
+Using rails-html-sanitizer 1.0.3
+Using activejob 5.0.1
+Using activerecord 5.0.1
+Using spring-watcher-listen 2.0.1
+Using actionview 5.0.1
+Using actionpack 5.0.1
+Using actioncable 5.0.1
+Using actionmailer 5.0.1
+Using railties 5.0.1
+Using sprockets-rails 3.2.0
+Using coffee-rails 4.2.1
+Using responders 2.3.0
+Using jquery-rails 4.2.2
+Using web-console 3.4.0
+Using rails 5.0.1
+Using sass-rails 5.0.6
+Using devise 4.2.0
+Bundle complete! 16 Gemfile dependencies, 67 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ rails generate devise install
+Running via Spring preloader in process 19282
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      create    db/migrate/20170104192153_devise_create_installs.rb
+      create    app/models/install.rb
+      invoke    test_unit
+      create      test/models/install_test.rb
+      create      test/fixtures/installs.yml
+      insert    app/models/install.rb
+       route  devise_for :installs
+~/projects/projectTWO/racquetball_ri (master)$ rails destroy model install
+/Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activerecord-5.0.1/lib/active_record/dynamic_matchers.rb:21:in `method_missing': undefined method `devise' for Install (call 'Install.connection' to establish a connection):Class (NoMethodError)
+	from /Users/masonbrown/projects/projectTWO/racquetball_ri/app/models/install.rb:4:in `<class:Install>'
+	from /Users/masonbrown/projects/projectTWO/racquetball_ri/app/models/install.rb:1:in `<top (required)>'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:477:in `load'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:477:in `block in load_file'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:662:in `new_constants_in'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:476:in `load_file'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:375:in `block in require_or_load'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:37:in `block in load_interlock'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies/interlock.rb:12:in `block in loading'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/concurrency/share_lock.rb:150:in `exclusive'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies/interlock.rb:11:in `loading'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:37:in `load_interlock'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:358:in `require_or_load'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:511:in `load_missing_constant'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:203:in `const_missing'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/inflector/methods.rb:268:in `const_get'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/inflector/methods.rb:268:in `block in constantize'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/inflector/methods.rb:266:in `each'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/inflector/methods.rb:266:in `inject'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/inflector/methods.rb:266:in `constantize'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:583:in `get'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:614:in `constantize'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise.rb:301:in `get'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/mapping.rb:81:in `to'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/mapping.rb:76:in `modules'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/mapping.rb:93:in `routes'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/mapping.rb:160:in `default_used_route'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/mapping.rb:70:in `initialize'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise.rb:331:in `new'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise.rb:331:in `add_mapping'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/rails/routes.rb:241:in `block in devise_for'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/rails/routes.rb:240:in `each'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/devise-4.2.0/lib/devise/rails/routes.rb:240:in `devise_for'
+	from /Users/masonbrown/projects/projectTWO/racquetball_ri/config/routes.rb:2:in `block in <top (required)>'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/routing/route_set.rb:389:in `instance_exec'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/routing/route_set.rb:389:in `eval_block'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/routing/route_set.rb:371:in `draw'
+	from /Users/masonbrown/projects/projectTWO/racquetball_ri/config/routes.rb:1:in `<top (required)>'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:287:in `load'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:287:in `block in load'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:259:in `load_dependency'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/dependencies.rb:287:in `load'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/routes_reloader.rb:40:in `each'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/routes_reloader.rb:40:in `load_paths'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/routes_reloader.rb:16:in `reload!'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/routes_reloader.rb:26:in `block in updater'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/file_update_checker.rb:77:in `execute'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/routes_reloader.rb:7:in `execute'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/railties-5.0.1/lib/rails/application/finisher.rb:132:in `block (2 levels) in <module:Finisher>'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:396:in `instance_exec'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:396:in `block in make_lambda'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:547:in `block (2 levels) in default_terminator'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:546:in `catch'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:546:in `block in default_terminator'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:170:in `block in halting'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:454:in `block in call'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:454:in `each'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:454:in `call'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:750:in `_run_run_callbacks'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/callbacks.rb:90:in `run_callbacks'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/execution_wrapper.rb:108:in `run!'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/reloader.rb:113:in `run!'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/reloader.rb:48:in `block (2 levels) in reload!'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/reloader.rb:46:in `tap'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/reloader.rb:46:in `block in reload!'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/execution_wrapper.rb:85:in `wrap'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.1/lib/active_support/reloader.rb:45:in `reload!'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/spring-2.0.0/lib/spring/application.rb:154:in `serve'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/spring-2.0.0/lib/spring/application.rb:131:in `block in run'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/spring-2.0.0/lib/spring/application.rb:125:in `loop'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/spring-2.0.0/lib/spring/application.rb:125:in `run'
+	from /Users/masonbrown/.rvm/gems/ruby-2.3.0/gems/spring-2.0.0/lib/spring/application/boot.rb:19:in `<top (required)>'
+	from /Users/masonbrown/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /Users/masonbrown/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from -e:1:in `<main>'
+~/projects/projectTWO/racquetball_ri (master)$ rails destroy devise install
+Running via Spring preloader in process 19398
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      remove    db/migrate/20170104192153_devise_create_installs.rb
+      remove    app/models/install.rb
+      invoke    test_unit
+      remove      test/models/install_test.rb
+      remove      test/fixtures/installs.yml
+       route  devise_for :installs
+~/projects/projectTWO/racquetball_ri (master)$ rails generate devise:install
+Running via Spring preloader in process 19406
+Expected string default value for '--jbuilder'; got true (boolean)
+      create  config/initializers/devise.rb
+      create  config/locales/devise.en.yml
+===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Ensure you have defined default url options in your environments files. Here
+     is an example of default_url_options appropriate for a development environment
+     in config/environments/development.rb:
+
+       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+     In production, :host should be set to the actual host of your application.
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root to: "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+  4. You can copy Devise views (for customization) to your app by running:
+
+       rails g devise:views
+
+===============================================================================
+~/projects/projectTWO/racquetball_ri (master)$ rails g devise:views
+Running via Spring preloader in process 20617
+Expected string default value for '--jbuilder'; got true (boolean)
+Expected boolean default value for '--markerb'; got :erb (string)
+      invoke  Devise::Generators::SharedViewsGenerator
+      create    app/views/devise/shared
+      create    app/views/devise/shared/_links.html.erb
+      invoke  form_for
+      create    app/views/devise/confirmations
+      create    app/views/devise/confirmations/new.html.erb
+      create    app/views/devise/passwords
+      create    app/views/devise/passwords/edit.html.erb
+      create    app/views/devise/passwords/new.html.erb
+      create    app/views/devise/registrations
+      create    app/views/devise/registrations/edit.html.erb
+      create    app/views/devise/registrations/new.html.erb
+      create    app/views/devise/sessions
+      create    app/views/devise/sessions/new.html.erb
+      create    app/views/devise/unlocks
+      create    app/views/devise/unlocks/new.html.erb
+      invoke  erb
+      create    app/views/devise/mailer
+      create    app/views/devise/mailer/confirmation_instructions.html.erb
+      create    app/views/devise/mailer/password_change.html.erb
+      create    app/views/devise/mailer/reset_password_instructions.html.erb
+      create    app/views/devise/mailer/unlock_instructions.html.erb
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commmit -m'installed devise and added devise views'
+git: 'commmit' is not a git command. See 'git --help'.
+
+Did you mean this?
+	commit
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'installed devie and added devise views'
+[master c8c7a29] installed devie and added devise views
+ 19 files changed, 614 insertions(+), 7 deletions(-)
+ create mode 100644 app/views/devise/confirmations/new.html.erb
+ create mode 100644 app/views/devise/mailer/confirmation_instructions.html.erb
+ create mode 100644 app/views/devise/mailer/password_change.html.erb
+ create mode 100644 app/views/devise/mailer/reset_password_instructions.html.erb
+ create mode 100644 app/views/devise/mailer/unlock_instructions.html.erb
+ create mode 100644 app/views/devise/passwords/edit.html.erb
+ create mode 100644 app/views/devise/passwords/new.html.erb
+ create mode 100644 app/views/devise/registrations/edit.html.erb
+ create mode 100644 app/views/devise/registrations/new.html.erb
+ create mode 100644 app/views/devise/sessions/new.html.erb
+ create mode 100644 app/views/devise/shared/_links.html.erb
+ create mode 100644 app/views/devise/unlocks/new.html.erb
+ create mode 100644 config/initializers/devise.rb
+ create mode 100644 config/locales/devise.en.yml
+~/projects/projectTWO/racquetball_ri (master)$ rails g devise User
+Running via Spring preloader in process 20737
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      create    db/migrate/20170104202619_devise_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+      insert    app/models/user.rb
+       route  devise_for :users
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+== 20170104202619 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   -> 0.0081s
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0007s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   -> 0.0006s
+== 20170104202619 DeviseCreateUsers: migrated (0.0095s) =======================
+
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   app/assets/stylesheets/application.css
+	modified:   app/controllers/posts_controller.rb
+	new file:   app/models/user.rb
+	modified:   app/views/layouts/application.html.erb
+	modified:   config/routes.rb
+	new file:   db/migrate/20170104202619_devise_create_users.rb
+	modified:   db/schema.rb
+	new file:   test/fixtures/users.yml
+	new file:   test/models/user_test.rb
+
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m' '
+Aborting commit due to empty commit message.
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'idk'
+[master 9e5e673] idk
+ 9 files changed, 101 insertions(+), 10 deletions(-)
+ create mode 100644 app/models/user.rb
+ create mode 100644 db/migrate/20170104202619_devise_create_users.rb
+ create mode 100644 test/fixtures/users.yml
+ create mode 100644 test/models/user_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ rails generate controller Gyms
+Running via Spring preloader in process 24093
+Expected string default value for '--jbuilder'; got true (boolean)
+Expected string default value for '--helper'; got true (boolean)
+Expected string default value for '--assets'; got true (boolean)
+      create  app/controllers/gyms_controller.rb
+      invoke  erb
+      create    app/views/gyms
+      invoke  test_unit
+      create    test/controllers/gyms_controller_test.rb
+      invoke  helper
+      create    app/helpers/gyms_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/gyms.coffee
+      invoke    scss
+      create      app/assets/stylesheets/gyms.scss
+~/projects/projectTWO/racquetball_ri (master)$ rails generate model Gym
+Running via Spring preloader in process 24115
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      create    db/migrate/20170105024537_create_gyms.rb
+      create    app/models/gym.rb
+      invoke    test_unit
+      create      test/models/gym_test.rb
+      create      test/fixtures/gyms.yml
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+== 20170105024537 CreateGyms: migrating =======================================
+-- create_table(:gyms)
+   -> 0.0059s
+== 20170105024537 CreateGyms: migrated (0.0060s) ==============================
+
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+~/projects/projectTWO/racquetball_ri (master)$ rake db:reset
+Dropped database 'db/development.sqlite3'
+Database 'db/test.sqlite3' does not exist
+Created database 'db/development.sqlite3'
+Created database 'db/test.sqlite3'
+-- create_table("comments", {:force=>:cascade})
+   -> 0.0078s
+-- create_table("gyms", {:force=>:cascade})
+   -> 0.0013s
+-- create_table("posts", {:force=>:cascade})
+   -> 0.0010s
+-- create_table("users", {:force=>:cascade})
+   -> 0.0067s
+-- initialize_schema_migrations_table()
+   -> 0.0013s
+-- create_table("comments", {:force=>:cascade})
+   -> 0.0038s
+-- create_table("gyms", {:force=>:cascade})
+   -> 0.0030s
+-- create_table("posts", {:force=>:cascade})
+   -> 0.0009s
+-- create_table("users", {:force=>:cascade})
+   -> 0.0047s
+-- initialize_schema_migrations_table()
+   -> 0.0014s
+~/projects/projectTWO/racquetball_ri (master)$ rake routes
+                  Prefix Verb   URI Pattern                                 Controller#Action
+        new_user_session GET    /users/sign_in(.:format)                    devise/sessions#new
+            user_session POST   /users/sign_in(.:format)                    devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)                   devise/sessions#destroy
+       new_user_password GET    /users/password/new(.:format)               devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)              devise/passwords#edit
+           user_password PATCH  /users/password(.:format)                   devise/passwords#update
+                         PUT    /users/password(.:format)                   devise/passwords#update
+                         POST   /users/password(.:format)                   devise/passwords#create
+cancel_user_registration GET    /users/cancel(.:format)                     devise/registrations#cancel
+   new_user_registration GET    /users/sign_up(.:format)                    devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                       devise/registrations#edit
+       user_registration PATCH  /users(.:format)                            devise/registrations#update
+                         PUT    /users(.:format)                            devise/registrations#update
+                         DELETE /users(.:format)                            devise/registrations#destroy
+                         POST   /users(.:format)                            devise/registrations#create
+           post_comments GET    /posts/:post_id/comments(.:format)          comments#index
+                         POST   /posts/:post_id/comments(.:format)          comments#create
+        new_post_comment GET    /posts/:post_id/comments/new(.:format)      comments#new
+       edit_post_comment GET    /posts/:post_id/comments/:id/edit(.:format) comments#edit
+            post_comment GET    /posts/:post_id/comments/:id(.:format)      comments#show
+                         PATCH  /posts/:post_id/comments/:id(.:format)      comments#update
+                         PUT    /posts/:post_id/comments/:id(.:format)      comments#update
+                         DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
+                   posts GET    /posts(.:format)                            posts#index
+                         POST   /posts(.:format)                            posts#create
+                new_post GET    /posts/new(.:format)                        posts#new
+               edit_post GET    /posts/:id/edit(.:format)                   posts#edit
+                    post GET    /posts/:id(.:format)                        posts#show
+                         PATCH  /posts/:id(.:format)                        posts#update
+                         PUT    /posts/:id(.:format)                        posts#update
+                         DELETE /posts/:id(.:format)                        posts#destroy
+                    gyms GET    /gyms(.:format)                             gyms#index
+                         POST   /gyms(.:format)                             gyms#create
+                 new_gym GET    /gyms/new(.:format)                         gyms#new
+                edit_gym GET    /gyms/:id/edit(.:format)                    gyms#edit
+                     gym GET    /gyms/:id(.:format)                         gyms#show
+                         PATCH  /gyms/:id(.:format)                         gyms#update
+                         PUT    /gyms/:id(.:format)                         gyms#update
+                         DELETE /gyms/:id(.:format)                         gyms#destroy
+                    root GET    /                                           posts#index
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 9e5e6734892cea2bd624dba8f54eea0c06d1195a
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 21:43:22 2017 -0500
+
+    idk
+
+commit c8c7a295b8599ca662539cbda3e83661df8dd594
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 15:22:11 2017 -0500
+
+    installed devie and added devise views
+
+commit 7e3fed5b0274368878f8071bd328efa11df4a18a
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 14:13:59 2017 -0500
+
+    delete comments added
+
+commit c9053a3ec777bc44b36f2ba858009aefa5687f62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:56:27 2017 -0500
+
+    added controller for comments
+
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+~/projects/projectTWO/racquetball_ri (master)$ git reset --hard
+HEAD is now at 9e5e673 idk
+~/projects/projectTWO/racquetball_ri (master)$ psql
+psql (9.6.1)
+Type "help" for help.
+
+masonbrown=# \l
+                                                     List of databases
+                    Name                    |   Owner    | Encoding |   Collate   |    Ctype    |     Access privileges     
+--------------------------------------------+------------+----------+-------------+-------------+---------------------------
+ game_of_thrones_development                | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ game_of_thrones_test                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hogwarts_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ library                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ masonbrown                                 | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ nba_db                                     | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ poke_db                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres                                   | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ project2_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ project2_test                              | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ racquetball_development                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ racquetball_test                           | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ schedoc_development                        | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ schedoc_test                               | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ scribble_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ scribble_test                              | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/masonbrown            +
+                                            |            |          |             |             | masonbrown=CTc/masonbrown
+ template1                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/masonbrown            +
+                                            |            |          |             |             | masonbrown=CTc/masonbrown
+ tunr_db                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_development                           | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_rails_development                     | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_rails_test                            | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_test                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ wdi_4_rails_hw_tdd_hacker_news_development | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ wdi_4_rails_hw_tdd_hacker_news_test        | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(25 rows)
+
+masonbrown=# \c racquetball_development 
+You are now connected to database "racquetball_development" as user "masonbrown".
+racquetball_development=# \l
+                                                     List of databases
+                    Name                    |   Owner    | Encoding |   Collate   |    Ctype    |     Access privileges     
+--------------------------------------------+------------+----------+-------------+-------------+---------------------------
+ game_of_thrones_development                | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ game_of_thrones_test                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hogwarts_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ library                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ masonbrown                                 | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ nba_db                                     | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ poke_db                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres                                   | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ project2_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ project2_test                              | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ racquetball_development                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ racquetball_test                           | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ schedoc_development                        | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ schedoc_test                               | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ scribble_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ scribble_test                              | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/masonbrown            +
+                                            |            |          |             |             | masonbrown=CTc/masonbrown
+ template1                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/masonbrown            +
+                                            |            |          |             |             | masonbrown=CTc/masonbrown
+ tunr_db                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_development                           | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_rails_development                     | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_rails_test                            | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_test                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ wdi_4_rails_hw_tdd_hacker_news_development | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ wdi_4_rails_hw_tdd_hacker_news_test        | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(25 rows)
+
+racquetball_development=# \lt
+Invalid command \lt. Try \? for help.
+racquetball_development=# \l
+                                                     List of databases
+                    Name                    |   Owner    | Encoding |   Collate   |    Ctype    |     Access privileges     
+--------------------------------------------+------------+----------+-------------+-------------+---------------------------
+ game_of_thrones_development                | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ game_of_thrones_test                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hogwarts_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ library                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ masonbrown                                 | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ nba_db                                     | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ poke_db                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres                                   | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ project2_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ project2_test                              | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ racquetball_development                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ racquetball_test                           | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ schedoc_development                        | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ schedoc_test                               | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ scribble_development                       | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ scribble_test                              | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/masonbrown            +
+                                            |            |          |             |             | masonbrown=CTc/masonbrown
+ template1                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/masonbrown            +
+                                            |            |          |             |             | masonbrown=CTc/masonbrown
+ tunr_db                                    | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_development                           | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_rails_development                     | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_rails_test                            | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ tunr_test                                  | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ wdi_4_rails_hw_tdd_hacker_news_development | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ wdi_4_rails_hw_tdd_hacker_news_test        | masonbrown | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(25 rows)
+
+racquetball_development=# \dt
+                 List of relations
+ Schema |         Name         | Type  |   Owner    
+--------+----------------------+-------+------------
+ public | ar_internal_metadata | table | masonbrown
+ public | schema_migrations    | table | masonbrown
+ public | users                | table | masonbrown
+(3 rows)
+
+racquetball_development=# SELECT * FROM users
+racquetball_development-# ;
+ id | email | encrypted_password | reset_password_token | reset_password_sent_at | remember_created_at | sign_in_count | current_sign_in_at | last_sign_in_at | current_sign_in_ip | last_sign_in_ip | created_at | updated_at 
+----+-------+--------------------+----------------------+------------------------+---------------------+---------------+--------------------+-----------------+--------------------+-----------------+------------+------------
+(0 rows)
+
+racquetball_development=# \quit
+~/projects/projectTWO/racquetball_ri (master)$ sqlite
+-bash: sqlite: command not found
+~/projects/projectTWO/racquetball_ri (master)$ sqlite3
+SQLite version 3.14.0 2016-07-26 15:17:14
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .databases
+seq  name             file                                                      
+---  ---------------  ----------------------------------------------------------
+0    main                                                                       
+sqlite> .tables
+sqlite> ;
+sqlite> .quit
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+~/projects/projectTWO/racquetball_ri (master)$ rakes routes
+-bash: rakes: command not found
+~/projects/projectTWO/racquetball_ri (master)$ rake routes
+                  Prefix Verb   URI Pattern                                 Controller#Action
+        new_user_session GET    /users/sign_in(.:format)                    devise/sessions#new
+            user_session POST   /users/sign_in(.:format)                    devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)                   devise/sessions#destroy
+       new_user_password GET    /users/password/new(.:format)               devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)              devise/passwords#edit
+           user_password PATCH  /users/password(.:format)                   devise/passwords#update
+                         PUT    /users/password(.:format)                   devise/passwords#update
+                         POST   /users/password(.:format)                   devise/passwords#create
+cancel_user_registration GET    /users/cancel(.:format)                     devise/registrations#cancel
+   new_user_registration GET    /users/sign_up(.:format)                    devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                       devise/registrations#edit
+       user_registration PATCH  /users(.:format)                            devise/registrations#update
+                         PUT    /users(.:format)                            devise/registrations#update
+                         DELETE /users(.:format)                            devise/registrations#destroy
+                         POST   /users(.:format)                            devise/registrations#create
+           post_comments GET    /posts/:post_id/comments(.:format)          comments#index
+                         POST   /posts/:post_id/comments(.:format)          comments#create
+        new_post_comment GET    /posts/:post_id/comments/new(.:format)      comments#new
+       edit_post_comment GET    /posts/:post_id/comments/:id/edit(.:format) comments#edit
+            post_comment GET    /posts/:post_id/comments/:id(.:format)      comments#show
+                         PATCH  /posts/:post_id/comments/:id(.:format)      comments#update
+                         PUT    /posts/:post_id/comments/:id(.:format)      comments#update
+                         DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
+                   posts GET    /posts(.:format)                            posts#index
+                         POST   /posts(.:format)                            posts#create
+                new_post GET    /posts/new(.:format)                        posts#new
+               edit_post GET    /posts/:id/edit(.:format)                   posts#edit
+                    post GET    /posts/:id(.:format)                        posts#show
+                         PATCH  /posts/:id(.:format)                        posts#update
+                         PUT    /posts/:id(.:format)                        posts#update
+                         DELETE /posts/:id(.:format)                        posts#destroy
+                    gyms GET    /gyms(.:format)                             gyms#index
+                         POST   /gyms(.:format)                             gyms#create
+                 new_gym GET    /gyms/new(.:format)                         gyms#new
+                edit_gym GET    /gyms/:id/edit(.:format)                    gyms#edit
+                     gym GET    /gyms/:id(.:format)                         gyms#show
+                         PATCH  /gyms/:id(.:format)                         gyms#update
+                         PUT    /gyms/:id(.:format)                         gyms#update
+                         DELETE /gyms/:id(.:format)                         gyms#destroy
+                    root GET    /                                           posts#index
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'can add gym and view all gyms now'
+[master 0764e1b] can add gym and view all gyms now
+ 15 files changed, 109 insertions(+), 4 deletions(-)
+ create mode 100644 app/assets/javascripts/gyms.coffee
+ create mode 100644 app/assets/stylesheets/gyms.scss
+ create mode 100644 app/controllers/gyms_controller.rb
+ create mode 100644 app/helpers/gyms_helper.rb
+ create mode 100644 app/models/gym.rb
+ create mode 100644 app/views/gyms/index.html.erb
+ create mode 100644 app/views/gyms/new.html.erb
+ create mode 100644 app/views/gyms/show.html.erb
+ create mode 100644 db/migrate/20170105024537_create_gyms.rb
+ create mode 100644 test/controllers/gyms_controller_test.rb
+ create mode 100644 test/fixtures/gyms.yml
+ create mode 100644 test/models/gym_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 0764e1b5320fc529d87a1b50849db2562b18c8b9
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Thu Jan 5 11:18:54 2017 -0500
+
+    can add gym and view all gyms now
+
+commit 9e5e6734892cea2bd624dba8f54eea0c06d1195a
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 21:43:22 2017 -0500
+
+    idk
+
+commit c8c7a295b8599ca662539cbda3e83661df8dd594
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 15:22:11 2017 -0500
+
+    installed devie and added devise views
+
+commit 7e3fed5b0274368878f8071bd328efa11df4a18a
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 14:13:59 2017 -0500
+
+    delete comments added
+
+commit c9053a3ec777bc44b36f2ba858009aefa5687f62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:56:27 2017 -0500
+
+    added controller for comments
+
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+~/projects/projectTWO/racquetball_ri (master)$ rails routes
+                  Prefix Verb   URI Pattern                                 Controller#Action
+        new_user_session GET    /users/sign_in(.:format)                    devise/sessions#new
+            user_session POST   /users/sign_in(.:format)                    devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)                   devise/sessions#destroy
+       new_user_password GET    /users/password/new(.:format)               devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)              devise/passwords#edit
+           user_password PATCH  /users/password(.:format)                   devise/passwords#update
+                         PUT    /users/password(.:format)                   devise/passwords#update
+                         POST   /users/password(.:format)                   devise/passwords#create
+cancel_user_registration GET    /users/cancel(.:format)                     devise/registrations#cancel
+   new_user_registration GET    /users/sign_up(.:format)                    devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                       devise/registrations#edit
+       user_registration PATCH  /users(.:format)                            devise/registrations#update
+                         PUT    /users(.:format)                            devise/registrations#update
+                         DELETE /users(.:format)                            devise/registrations#destroy
+                         POST   /users(.:format)                            devise/registrations#create
+                    user GET    /users/:id(.:format)                        users#show
+           post_comments GET    /posts/:post_id/comments(.:format)          comments#index
+                         POST   /posts/:post_id/comments(.:format)          comments#create
+        new_post_comment GET    /posts/:post_id/comments/new(.:format)      comments#new
+       edit_post_comment GET    /posts/:post_id/comments/:id/edit(.:format) comments#edit
+            post_comment GET    /posts/:post_id/comments/:id(.:format)      comments#show
+                         PATCH  /posts/:post_id/comments/:id(.:format)      comments#update
+                         PUT    /posts/:post_id/comments/:id(.:format)      comments#update
+                         DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
+                   posts GET    /posts(.:format)                            posts#index
+                         POST   /posts(.:format)                            posts#create
+                new_post GET    /posts/new(.:format)                        posts#new
+               edit_post GET    /posts/:id/edit(.:format)                   posts#edit
+                    post GET    /posts/:id(.:format)                        posts#show
+                         PATCH  /posts/:id(.:format)                        posts#update
+                         PUT    /posts/:id(.:format)                        posts#update
+                         DELETE /posts/:id(.:format)                        posts#destroy
+                    gyms GET    /gyms(.:format)                             gyms#index
+                         POST   /gyms(.:format)                             gyms#create
+                 new_gym GET    /gyms/new(.:format)                         gyms#new
+                edit_gym GET    /gyms/:id/edit(.:format)                    gyms#edit
+                     gym GET    /gyms/:id(.:format)                         gyms#show
+                         PATCH  /gyms/:id(.:format)                         gyms#update
+                         PUT    /gyms/:id(.:format)                         gyms#update
+                         DELETE /gyms/:id(.:format)                         gyms#destroy
+                    root GET    /                                           posts#index
+~/projects/projectTWO/racquetball_ri (master)$ rails generate controller Users
+Running via Spring preloader in process 31524
+Expected string default value for '--jbuilder'; got true (boolean)
+Expected string default value for '--helper'; got true (boolean)
+Expected string default value for '--assets'; got true (boolean)
+      create  app/controllers/users_controller.rb
+      invoke  erb
+      create    app/views/users
+      invoke  test_unit
+      create    test/controllers/users_controller_test.rb
+      invoke  helper
+      create    app/helpers/users_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/users.coffee
+      invoke    scss
+      create      app/assets/stylesheets/users.scss
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'can see all users now'
+[master 50939ed] can see all users now
+ 9 files changed, 40 insertions(+), 1 deletion(-)
+ create mode 100644 app/assets/javascripts/users.coffee
+ create mode 100644 app/assets/stylesheets/users.scss
+ create mode 100644 app/controllers/users_controller.rb
+ create mode 100644 app/helpers/users_helper.rb
+ create mode 100644 app/views/users/index.html.erb
+ create mode 100644 app/views/users/show.html.erb
+ create mode 100644 test/controllers/users_controller_test.rb
+~/projects/projectTWO/racquetball_ri (master)$ rake db:migrate
+~/projects/projectTWO/racquetball_ri (master)$ rails generate migration AddUserRefToPosts user:references
+Running via Spring preloader in process 34052
+Expected string default value for '--jbuilder'; got true (boolean)
+      invoke  active_record
+      create    db/migrate/20170105201152_add_user_ref_to_posts.rb
+~/projects/projectTWO/racquetball_ri (master)$ rails db:migrate
+== 20170105201152 AddUserRefToPosts: migrating ================================
+-- add_reference(:posts, :user, {:foreign_key=>true})
+   -> 0.0045s
+== 20170105201152 AddUserRefToPosts: migrated (0.0046s) =======================
+
+~/projects/projectTWO/racquetball_ri (master)$ rake db:reset
+Dropped database 'db/development.sqlite3'
+Dropped database 'db/test.sqlite3'
+Created database 'db/development.sqlite3'
+Created database 'db/test.sqlite3'
+-- create_table("comments", {:force=>:cascade})
+   -> 0.0092s
+-- create_table("gyms", {:force=>:cascade})
+   -> 0.0018s
+-- create_table("posts", {:force=>:cascade})
+   -> 0.0028s
+-- create_table("users", {:force=>:cascade})
+   -> 0.0078s
+-- initialize_schema_migrations_table()
+   -> 0.0014s
+-- create_table("comments", {:force=>:cascade})
+   -> 0.0033s
+-- create_table("gyms", {:force=>:cascade})
+   -> 0.0014s
+-- create_table("posts", {:force=>:cascade})
+   -> 0.0036s
+-- create_table("users", {:force=>:cascade})
+   -> 0.0047s
+-- initialize_schema_migrations_table()
+   -> 0.0011s
+~/projects/projectTWO/racquetball_ri (master)$ git add .
+~/projects/projectTWO/racquetball_ri (master)$ git commit -m'user who created post shows up now'
+[master 2effebe] user who created post shows up now
+ 9 files changed, 17 insertions(+), 5 deletions(-)
+ create mode 100644 db/migrate/20170105201152_add_user_ref_to_posts.rb
+~/projects/projectTWO/racquetball_ri (master)$ git log
+commit 2effebef8a70bf8fdce91a5aa6bb8a693d41784d
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Thu Jan 5 16:04:53 2017 -0500
+
+    user who created post shows up now
+
+commit 50939edcfd66b5073ff64c11a9837b47d23d37c7
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Thu Jan 5 14:25:03 2017 -0500
+
+    can see all users now
+
+commit 0764e1b5320fc529d87a1b50849db2562b18c8b9
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Thu Jan 5 11:18:54 2017 -0500
+
+    can add gym and view all gyms now
+
+commit 9e5e6734892cea2bd624dba8f54eea0c06d1195a
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 21:43:22 2017 -0500
+
+    idk
+
+commit c8c7a295b8599ca662539cbda3e83661df8dd594
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 15:22:11 2017 -0500
+
+    installed devie and added devise views
+
+commit 7e3fed5b0274368878f8071bd328efa11df4a18a
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 14:13:59 2017 -0500
+
+    delete comments added
+
+commit c9053a3ec777bc44b36f2ba858009aefa5687f62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:56:27 2017 -0500
+
+    added controller for comments
+
+commit 472077ffc899b92b2c397a6257280c7b7543ac25
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 12:51:24 2017 -0500
+
+    generated model for Comment and migrated to database
+
+commit f939e881a6d3bea94c3a6cb6024b76830ae6200c
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:52:49 2017 -0500
+
+    edit and delete posts
+
+commit 5ebc30aca20d29004aa73ef8243948edabefa2d6
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 11:26:28 2017 -0500
+
+    validations started on posts
+
+commit 13e2a88607503ed546cee0e3909960d24c2301bd
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:54:21 2017 -0500
+
+    posts index shows posts with date createad
+
+commit 429bb1c428b98a485a596bbdb0d4ba8adca0da62
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:48:05 2017 -0500
+
+    new posts form was in the index.html.erb by accident. moved to a new.html.erb
+
+commit 618b1c26afc0bed94b071c7d4b278eaf15288fc0
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:43:09 2017 -0500
+
+    first post was successful and appeared on posts show view
+
+commit a7a01d98d810e63b23ac23e998fb53da8976ef50
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:13:36 2017 -0500
+
+    generated Post model and than did db:migrate
+
+commit 9eda4a88ffa2d7eb6bc3d43280c0eebbaaa53628
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 08:01:49 2017 -0500
+
+    added form_for new posts
+
+commit d260b5393a741c28a57313e72d7d29c70fee0876
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:52:06 2017 -0500
+
+    added first view for posts index
+
+commit 3163d0ba391cd63ffedb5621903675669a2d7381
+Author: mwb86 <masonwbrown@gmail.com>
+Date:   Wed Jan 4 07:41:56 2017 -0500
+
+    clean slate rails
+~/projects/projectTWO/racquetball_ri (master)$ rails routes
+                  Prefix Verb   URI Pattern                                                Controller#Action
+        new_user_session GET    /users/sign_in(.:format)                                   devise/sessions#new
+            user_session POST   /users/sign_in(.:format)                                   devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)                                  devise/sessions#destroy
+       new_user_password GET    /users/password/new(.:format)                              devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)                             devise/passwords#edit
+           user_password PATCH  /users/password(.:format)                                  devise/passwords#update
+                         PUT    /users/password(.:format)                                  devise/passwords#update
+                         POST   /users/password(.:format)                                  devise/passwords#create
+cancel_user_registration GET    /users/cancel(.:format)                                    devise/registrations#cancel
+   new_user_registration GET    /users/sign_up(.:format)                                   devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                                      devise/registrations#edit
+       user_registration PATCH  /users(.:format)                                           devise/registrations#update
+                         PUT    /users(.:format)                                           devise/registrations#update
+                         DELETE /users(.:format)                                           devise/registrations#destroy
+                         POST   /users(.:format)                                           devise/registrations#create
+      user_post_comments GET    /users/:user_id/posts/:post_id/comments(.:format)          comments#index
+                         POST   /users/:user_id/posts/:post_id/comments(.:format)          comments#create
+   new_user_post_comment GET    /users/:user_id/posts/:post_id/comments/new(.:format)      comments#new
+  edit_user_post_comment GET    /users/:user_id/posts/:post_id/comments/:id/edit(.:format) comments#edit
+       user_post_comment GET    /users/:user_id/posts/:post_id/comments/:id(.:format)      comments#show
+                         PATCH  /users/:user_id/posts/:post_id/comments/:id(.:format)      comments#update
+                         PUT    /users/:user_id/posts/:post_id/comments/:id(.:format)      comments#update
+                         DELETE /users/:user_id/posts/:post_id/comments/:id(.:format)      comments#destroy
+              user_posts GET    /users/:user_id/posts(.:format)                            posts#index
+                         POST   /users/:user_id/posts(.:format)                            posts#create
+           new_user_post GET    /users/:user_id/posts/new(.:format)                        posts#new
+          edit_user_post GET    /users/:user_id/posts/:id/edit(.:format)                   posts#edit
+               user_post GET    /users/:user_id/posts/:id(.:format)                        posts#show
+                         PATCH  /users/:user_id/posts/:id(.:format)                        posts#update
+                         PUT    /users/:user_id/posts/:id(.:format)                        posts#update
+                         DELETE /users/:user_id/posts/:id(.:format)                        posts#destroy
+                   users GET    /users(.:format)                                           users#index
+                         POST   /users(.:format)                                           users#create
+                new_user GET    /users/new(.:format)                                       users#new
+               edit_user GET    /users/:id/edit(.:format)                                  users#edit
+                    user GET    /users/:id(.:format)                                       users#show
+                         PATCH  /users/:id(.:format)                                       users#update
+                         PUT    /users/:id(.:format)                                       users#update
+                         DELETE /users/:id(.:format)                                       users#destroy
+                    gyms GET    /gyms(.:format)                                            gyms#index
+                         POST   /gyms(.:format)                                            gyms#create
+                 new_gym GET    /gyms/new(.:format)                                        gyms#new
+                edit_gym GET    /gyms/:id/edit(.:format)                                   gyms#edit
+                     gym GET    /gyms/:id(.:format)                                        gyms#show
+                         PATCH  /gyms/:id(.:format)                                        gyms#update
+                         PUT    /gyms/:id(.:format)                                        gyms#update
+                         DELETE /gyms/:id(.:format)                                        gyms#destroy
+                    root GET    /                                                          posts#index
+~/projects/projectTWO/racquetball_ri (master)$ 
