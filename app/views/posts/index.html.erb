@@ -1,8 +1,7 @@
 <button><%= link_to "New Post", new_post_path %></button>
 <% @posts.each do |post| %>
   <div class ="post_wrapper">
-    <%= post.user.email %>
     <h2 class ="title"><%= link_to post.title, post %></h2>
-    <p class ="date"><%= link_to post.created_at.strftime("%B, %d, %Y")%></p>
+    <p class ="date"><%= post.user.email %> Posted :<%= post.created_at.strftime("%B, %d, %Y")%></p>
   </div>
   <% end %>

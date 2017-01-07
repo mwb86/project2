@@ -13,61 +13,82 @@
  *= require_tree .
  *= require_self
  */
+#logo {
+  position:relative;
+  display: block;
+  border-bottom: solid 7px black;
+  z-index:0;
+}
+#playerGIF {
+  position:relative;
+  z-index: -1;
+}
 #ri{
+
+  background-position: 10%;
+  background-repeat: no-repeat;
   /*background-color: #ffffe6;*/
-  /*position:fixed;
-  bottom:0;*/
+  margin-top: -26px;
   font-size: 35px;
-  /*text-indent: 60px;*/
+  text-indent: 60px;
   color: #d66e5c;
-  margin: auto;
-  text-align: center;
+}
+#nextToGIF{
+  font-size: 90px;
+  vertical-align: middle;
+  transform : scale(1,1.8);
+  position: relative;
+  margin-top:26px;
+  left:-24px;
 }
 body{
-  /*background-image: url("http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg");*/
+  background-image: url("http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg");
   background-repeat: no-repeat;
-  background-position: center;
-  /*background-size: 100%;*/
-  height:900px;
+  background-size:cover;
 }
-/*img {
+img {
   position: relative;
   z-index: -1;
+  /*transform: scale(.5);*/
   float: left;
-
-}*/
-.flexbox{
-  display:flex;
+  /*opacity: .5;*/
+}
+#sidebar {
+  display: flex;
+  align-self: center;
   flex-direction: column;
-  width:480px;
-  margin: 0 auto;
+  /*border: solid 2px red;*/
+  max-width: 504px;
 }
-.title{
-  margin:0;
-}
-.date{
-  margin:0;
-  font-size: 12px;
-}
-#signInLinks{
-  display: block;
-  margin: 0 auto;
-  padding-top: 50px;
-  height:30px;
-  text-align: center;
+/*#home{
+  font-size: 10px;
+  background-repeat: no-repeat;
+}*/
+h1{
+  color: red;
+  /*font-size: 60px;*/
+  /*margin:0 auto;*/
+  /*padding-left: 0px;*/
+  /*margin-left: -30px;*/
+  /*flex-wrap: wrap;*/
+  /*height:85px;*/
+  /*vertical-align: middle;*/
+  /*border-bottom: solid 10px black;*/
+  margin: 0 0;
 }
 .yields{
-  /*border: solid 1px black;*/
-  width: 480px;
-  height: 500px;
-  text-align: left;
-  background-color: clear;
-  /*display:block;*/
-  min-height: 50%;
-  margin: 0 auto;
-  /*padding-top: 100px;*/
-  /*margin-top: 20%;*/
+  border: solid 1px black;
+  width: 50%;
+  text-align: center;
+  background-color: #ffffe6;
+  display:block;
+  width: 502px;
+  min-height: 200px;
 }
+#yieldsContainer{
+  display:flex;
+}
+
 button{
   background-color: lightgrey;
   border-radius: 5px;
@@ -79,7 +100,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #cc9f82;
-    margin: auto;
+    max-width: 504px;
 }
 
 li {
