@@ -29,8 +29,12 @@
     </div>
     <%= will_paginate @comments, :container => false %>
   </div>
-<% if (user_signed_in? && (current_user.id == @post.user_id))%>
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert") %>
+  <% end %>
+<% if (user_signed_in?)%>
   <h3>Add a comment</h3>
   <%= render "comments/form" %>
 </div>
+
 <% end %>

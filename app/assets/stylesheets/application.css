@@ -24,6 +24,7 @@
 body{
   background-repeat: no-repeat;
   background-position: center;
+  background-image: url("http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg");
   height:900px;
   text-align: center;
 }
@@ -113,7 +114,11 @@ li a {
     font-size: 24px;
 
 }
-
+.alert {
+  color:red;
+  font-size: 20px;
+  font-style: oblique;
+}
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: white;

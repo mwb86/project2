@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body background="http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg">
+  <body>
     <div id="signInLinks">
       <% if user_signed_in? %>
     Logged in as <strong><%= current_user.email %></strong>.
@@ -19,9 +19,7 @@
     <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
   <% end %>
-            <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert") %>
-      <% end %>
+
     </div>
     <div class ="yields"><%= yield %></div>
     <ul>
@@ -31,9 +29,6 @@
     </ul>
 <div class="flexbox">
     <div id="ri">Rhode Island Racquetball</div>
-
-
-
 </div>
   </body>
 </html>
