@@ -3,17 +3,17 @@
   <head>
     <title>RacquetballRi</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body background="http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg">
-
     <div id="signInLinks">
       <% if user_signed_in? %>
     Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+    <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %>
+    <%= link_to 'View Profile', current_user, :class => 'navbar-link' %>
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
@@ -24,15 +24,16 @@
       <% end %>
     </div>
     <div class ="yields"><%= yield %></div>
-<div class="flexbox">
-    <div id="ri">RI Racquetball</div>
-
-
     <ul>
-        <li><%= link_to "All Posts", root_path %></li>
-        <li><%= link_to "Gyms in RI", gyms_path %></li>
-        <li><%= link_to "Players of RI", users_path %></li>
+        <li class="animated infinite pulse"><%= link_to "All Posts", root_path %></li>
+        <li class="animated infinite pulse"><%= link_to "Gyms in RI", gyms_path %></li>
+        <li class="animated infinite pulse"><%= link_to "Players of RI", users_path %></li>
     </ul>
+<div class="flexbox">
+    <div id="ri">Rhode Island Racquetball</div>
+
+
+
 </div>
   </body>
 </html>

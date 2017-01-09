@@ -1,2 +1,9 @@
-<%= @user.email %><br>
-Signed in <%= @user.sign_in_count %> times
+<h1><%= @user.email %></h1><br>
+<% @user.posts.each do |post| %>
+ <div id="profileTitleStyle"><%= link_to post.title, post %></div>
+ <% if (user_signed_in? && (current_user.id == post.user_id))%>
+ | <%= link_to 'Edit', edit_post_path %>
+ | <%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: 'Are you sure?'} %>
+ <% end %>
+ <br>
+<% end %>

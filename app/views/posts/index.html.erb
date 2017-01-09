@@ -1,13 +1,16 @@
-<button><%= link_to "New Post", new_post_path %></button>
+<button class ="animated bounce" ><%= link_to "New Post", new_post_path %></button>
 <% @posts.each do |post| %>
   <div class ="post_wrapper">
-    <h2 class ="title"><%= link_to post.title, post %></h2>
+    <div id="ballAndTitle">
+      <img id="racquetball" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Racquetball_ball.svg" />
+      <h2 class ="title"><%= link_to post.title, post %></h2>
+    </div>
     <p class ="date"><%= post.user.email %> Posted :<%= post.created_at.strftime("%B, %d, %Y")%></p>
   </div>
   <% end %>
   <div class="digg_pagination">
     <div class="page_info">
-      <%= page_entries_info @posts %>
+      <a href="http://s524.photobucket.com/user/razhbi/media/bounce_147.gif.html" target="_blank"><img id="bouncingBall" src="http://i524.photobucket.com/albums/cc329/razhbi/bounce_147.gif" border="0" alt=" photo bounce_147.gif"/></a><%= page_entries_info @posts %>
     </div>
     <%= will_paginate @posts, :container => false %>
   </div>

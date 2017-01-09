@@ -17,11 +17,13 @@
   /*background-color: #ffffe6;*/
   /*position:fixed;
   bottom:0;*/
-  font-size: 35px;
+  font-size: 90px;
   /*text-indent: 60px;*/
   color: #d66e5c;
-  margin: auto;
+  margin: 0 auto;
+  margin-top: -80px;
   text-align: center;
+  transform:perspective(400px) rotateX(65deg);
 }
 body{
   /*background-image: url("http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg");*/
@@ -29,6 +31,7 @@ body{
   background-position: center;
   /*background-size: 100%;*/
   height:900px;
+  text-align: center;
 }
 /*img {
   position: relative;
@@ -44,17 +47,34 @@ body{
 }
 .title{
   margin:0;
+  font-size: 20px;
+  vertical-align: top;
+  display: inline-block;
 }
 .date{
   margin:0;
   font-size: 12px;
 }
+#comments{
+  height: 400px;
+}
+#racquetball{
+  width:26px;
+  display: inline-block;
+}
+#ballAndTitle{
+  display: block;
+  height:26px;
+}
+h1{
+  margin-top: 0;
+}
 #signInLinks{
   display: block;
   margin: 0 auto;
-  padding-top: 50px;
   height:30px;
   text-align: center;
+  padding-top: 50px;
 }
 .yields{
   /*border: solid 1px black;*/
@@ -68,38 +88,55 @@ body{
   /*padding-top: 100px;*/
   /*margin-top: 20%;*/
 }
+
+#playersIndexTitle{
+  text-align: center;
+  color: darkblue;
+  font-size: 20px;
+}
+#bouncingBall{
+  width:6px;
+  opacity: .3;
+}
 button{
   background-color: lightgrey;
   border-radius: 5px;
 }
-
+#profileTitleStyle{
+  font-size: 20px;
+}
 ul {
+    display: inline-block;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #cc9f82;
-    margin: auto;
+    background-color: clear;
+    transform:perspective(400px) rotateX(65deg);
 }
 
 li {
     float: left;
-    margin: auto;
-
+    margin: 20px 26px;
 }
 
 li a {
     display: block;
-    color: white;
+    color: red;
     text-align: center;
-    padding: 14px 16px;
+    padding: 2px;
     text-decoration: none;
+    font-size: 24px;
+
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: white;
+    border-radius: 5px;
+    padding:0;
 }
 .page_info{
   color:darkred;
+  padding-top: 7px;
 }
