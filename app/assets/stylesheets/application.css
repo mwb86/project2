@@ -14,11 +14,7 @@
  *= require_self
  */
 #ri{
-  /*background-color: #ffffe6;*/
-  /*position:fixed;
-  bottom:0;*/
   font-size: 90px;
-  /*text-indent: 60px;*/
   color: #d66e5c;
   margin: 0 auto;
   margin-top: -80px;
@@ -26,19 +22,11 @@
   transform:perspective(400px) rotateX(65deg);
 }
 body{
-  /*background-image: url("http://espritmdr.com/media/uploads/img/thumbnail/1400/937/eo2i1of17h.jpg");*/
   background-repeat: no-repeat;
   background-position: center;
-  /*background-size: 100%;*/
   height:900px;
   text-align: center;
 }
-/*img {
-  position: relative;
-  z-index: -1;
-  float: left;
-
-}*/
 .flexbox{
   display:flex;
   flex-direction: column;
@@ -77,16 +65,12 @@ h1{
   padding-top: 50px;
 }
 .yields{
-  /*border: solid 1px black;*/
   width: 480px;
   height: 500px;
   text-align: left;
   background-color: clear;
-  /*display:block;*/
   min-height: 50%;
   margin: 0 auto;
-  /*padding-top: 100px;*/
-  /*margin-top: 20%;*/
 }
 
 #playersIndexTitle{

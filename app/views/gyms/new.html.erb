@@ -1,6 +1,15 @@
 New Gym
 <%= form_for :gym, url: gyms_path do |f| %>
+<% if @gym.errors.any? %>
+  <div id="errors">
+      <h1><%= pluralize(@gym.errors.count, "error") %> prevented this post from saving</h1>
 
+        <% @gym.errors.full_messages.each do |msg| %>
+          <%= msg %><br>
+        <% end %>
+      
+    </div>
+<% end %>
 <p>
 <%= f.label :name %> <br>
 <%= f.text_field :name %>
